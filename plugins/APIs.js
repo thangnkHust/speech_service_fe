@@ -79,16 +79,59 @@ export default (context, inject) => {
       return response
     })
   
-  inject('deleteUser', async item_id => {
+  inject('deleteUser', async (id) => {
     const response = await context.app.$axios({
-      url: APIs.deleteUser.url,
+      url: APIs.deleteUser.url + id,
       method: APIs.deleteUser.method,
       headers: {
-        token_key: Cookies.get('token')
-      },
-      data: {
-        user_id: item_id
+        Authorization: 'Bearer ' + Cookies.get('token')
       }
+    })
+    return response
+  })
+
+  inject('activeUser', async (id) => {
+    const response = await context.app.$axios({
+      url: '/admin/users/' + id + '/active',
+      method: 'POST',
+      headers: {
+        Authorization: 'Bearer ' + Cookies.get('token')
+      }
+    })
+    return response
+  })
+
+  inject('getSpeakers', async ()  => {
+    const response = await context.app.$axios({
+      url: APIs.getSpeakers.url,
+      method: APIs.getSpeakers.method,
+      headers: {
+        Authorization: 'Bearer ' + Cookies.get('token')
+      },
+      params: {}
+    })
+    return response
+  })
+
+  inject('deleteSpeaker', async (id) => {
+    const response = await context.app.$axios({
+      url: APIs.deleteSpeaker.url + id,
+      method: APIs.deleteSpeaker.method,
+      headers: {
+        Authorization: 'Bearer ' + Cookies.get('token')
+      }
+    })
+    return response
+  })
+
+  inject('getAudio', async ()  => {
+    const response = await context.app.$axios({
+      url: APIs.getAudio.url,
+      method: APIs.getAudio.method,
+      headers: {
+        Authorization: 'Bearer ' + Cookies.get('token')
+      },
+      params: {}
     })
     return response
   })

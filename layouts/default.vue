@@ -86,9 +86,14 @@ export default {
           to: '/'
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'user',
-          to: '/user'
+          icon: 'mdi-account',
+          title: 'Users',
+          to: '/users'
+        },
+        {
+          icon: 'mdi-speaker',
+          title: 'Speakers',
+          to: '/speakers'
         }
       ],
       miniVariant: false,

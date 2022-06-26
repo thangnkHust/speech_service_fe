@@ -5,13 +5,14 @@ import APIs from '~/assets/configurations/API_Config'
 export default function(context) {
   context.$axios.onResponse(response => {
     const code = response.status
-    const OK = APIs.responses.OK.code
+    const OK = APIs.responses.OK.code 
+    const created = APIs.responses.created.code
     if (
       code === APIs.responses.TOKEN_EXPIRE.code ||
       code === APIs.responses.TOKEN_INVALID.code
     ) {
       // context.app.$logout(context.app.router)
-    } else if (code === OK) {
+    } else if (code === OK || code === created) {
       return {
         status: code,
         error: false,

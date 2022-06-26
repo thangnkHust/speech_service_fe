@@ -5,6 +5,10 @@ const APIs = {
       code: 200,
       message: 'OK'
     },
+    created: {
+      code: 201,
+      message: 'OK'
+    },
     TOKEN_INVALID: {
       code: 1,
       message: 'Token không hợp lệ'
@@ -244,6 +248,22 @@ const APIs = {
     url: '/auth/register',
     method: 'POST'
   },
+  deleteUser: {
+    url: '/admin/users/',
+    method: 'DELETE'
+  },
+  getSpeakers: {
+    url: '/admin/speakers',
+    method: 'GET'
+  },
+  deleteSpeaker: {
+    url: '/admin/speakers/',
+    method: 'DELETE'
+  },
+  getAudio: {
+    url: '/admin/speakers/1/audios/1',
+    method: 'GET'
+  }
 }
 
 export default APIs
