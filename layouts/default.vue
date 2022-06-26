@@ -22,6 +22,15 @@
             <v-list-item-title v-text="item.title" />
           </v-list-item-content>
         </v-list-item>
+        <!-- <v-list-item @click="logout" color="primary">
+          <v-list-item-icon>
+            <v-icon>mdi-logout</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title>Đăng xuất</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item> -->
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
@@ -38,6 +47,12 @@
       </v-btn>
       <v-toolbar-title v-text="title" />
       <v-spacer />
+      <v-btn
+        icon
+        @click="logout"
+      >
+        <v-icon>mdi-logout</v-icon>
+      </v-btn>
     </v-app-bar>
     <v-main>
       <v-container>
@@ -54,11 +69,15 @@
 </template>
 
 <script>
+import '~/assets/table.scss'
+import Cookies from 'js-cookie'
+import APIs from '~/assets/configurations/API_Config'
 export default {
+  middleware: 'auth',
   data () {
     return {
       clipped: false,
-      drawer: false,
+      drawer: true,
       fixed: false,
       items: [
         {
@@ -75,8 +94,22 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'User management'
+      title: 'User management',
+      email: null
     }
+  },
+  mounted() {
+      this.email = Cookies.get('email')
+  },
+  methods: {
+    logout() {
+      Object.keys(Cookies.get()).forEach(function(cookieName) {
+        var neededAttributes = {
+        }
+        Cookies.remove(cookieName, neededAttributes)
+      })
+      this.$router.push('/login')
+    },    
   }
 }
 </script>

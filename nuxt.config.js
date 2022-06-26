@@ -37,6 +37,9 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    '~/plugins/APIs.js',
+    '~/plugins/axios.js',
+    '~/plugins/util.js'
   ],
   /*
   ** Auto import components
@@ -54,7 +57,20 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    // Doc: https://axios.nuxtjs.org/usage
+    '@nuxtjs/axios',
+    // Vue Wait (Loading management)
+    'vue-wait/nuxt'
   ],
+  /*
+   ** Axios module configuration
+   ** See https://axios.nuxtjs.org/options
+   */
+  axios: {
+    // baseURL: 'https://api.gamehit.vn/api/cms/'
+    baseURL: 'https://715a-123-24-142-202.ap.ngrok.io/api/'
+  },
+  wait: { useVuex: true },
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module

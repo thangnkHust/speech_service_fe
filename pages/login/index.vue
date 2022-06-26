@@ -11,7 +11,8 @@
             <v-text-field
               prepend-icon="mdi-account"
               outlined
-              v-model="username"
+              v-model="email"
+              :error-messages="$store.state.login.email.errors"
               label="Tên đăng nhập *"
             ></v-text-field>
 
@@ -23,11 +24,12 @@
               v-model="password"
               prepend-icon="mdi-lock"
               :type="showPass ? 'text' : 'password'"
+              :error-messages="$store.state.login.password.errors"
               outlined
               @click:append="showPass = !showPass"
             ></v-text-field>
             <div class="d-flex justify-center">
-              <v-btn color="primary" type="submit" block>Đăng nhập</v-btn>
+              <v-btn color="primary" type="submit" :loading="$wait.is('logging')" block>Đăng nhập</v-btn>
             </div>
           </form>
         </v-card-text>
@@ -38,6 +40,7 @@
 
 <script>
 import Cookie from 'js-cookie'
+import APIs from '~/assets/configurations/API_Config'
 
 export default {
   name: 'index',
@@ -61,29 +64,28 @@ export default {
 
   methods: {
     submit() {
-      // this.$wait.start('logging')
-      // setTimeout(() => {
-      //   this.$store.dispatch('login/Submit', this.$store.state.app.ip)
-      // }, 1000)
-      this.$router.push('/')
+      this.$wait.start('logging')
+      setTimeout(() => {
+        this.$store.dispatch('login/submit')
+      }, 1000)
     }
   },
 
   computed: {
-    username: {
+    email: {
       get() {
-        // return this.$store.state.login.username.value
+        return this.$store.state.login.email.value
       },
       set(value) {
-        // this.$store.dispatch('login/setUsername', value)
+        this.$store.dispatch('login/setUsername', value)
       }
     },
     password: {
       get() {
-        // return this.$store.state.login.password.value
+        return this.$store.state.login.password.value
       },
       set(value) {
-        // this.$store.dispatch('login/setPassword', value)
+        this.$store.dispatch('login/setPassword', value)
       }
     }
   }
