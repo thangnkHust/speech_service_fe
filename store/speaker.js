@@ -25,9 +25,24 @@ export const actions = {
 
     }
   },
-  getAudio() {
+  getAudiosBySpeaker(vueContext, payload) {
     try {
-      const response = this.$getAudio()
+      const id = payload
+      const response = this.$getAudiosBySpeaker(id)
+      return response
+    } catch (errors) {
+      // Exceptions
+      this.app.wait.end('loadingUser')
+
+      return 1
+    }
+  },
+
+  addAudio(vueContext, payload) {
+    try {
+      const id = payload.id
+      const file = payload.file
+      const response = this.$addAudio(id, file)
       return response
     } catch (errors) {
       // Exceptions

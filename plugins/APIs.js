@@ -124,13 +124,29 @@ export default (context, inject) => {
     return response
   })
 
-  inject('getAudio', async ()  => {
+  inject('getAudiosBySpeaker', async (id)  => {
     const response = await context.app.$axios({
-      url: APIs.getAudio.url,
-      method: APIs.getAudio.method,
+      url: APIs.getAudiosBySpeaker.url + id + '/audios',
+      method: APIs.getAudiosBySpeaker.method,
       headers: {
         Authorization: 'Bearer ' + Cookies.get('token')
       },
+      params: {}
+    })
+    return response
+  })
+
+  inject('addAudio', async (id, file)  => {
+    console.log(file, 'file');
+    const formData = new FormData()
+    formData.append('audio_file', file)
+    const response = await context.app.$axios({
+      url: APIs.addAudio.url + id + '/audios',
+      method: APIs.addAudio.method,
+      headers: {
+        Authorization: 'Bearer ' + Cookies.get('token')
+      },
+      data: formData,
       params: {}
     })
     return response

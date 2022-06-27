@@ -1,8 +1,8 @@
 <template>
-<div>
-    <audio controls preload="metadata">
+<!-- <div> -->
+    <!-- <audio controls preload="metadata">
     <source id="my-audio" :src="audio" type="audio/wav"> Your browser does not support the audio element.
-  </audio>
+  </audio> -->
 
   <v-data-table :headers="headers" :items="speakers" class="elevation-1">
     <template v-slot:top>
@@ -24,7 +24,7 @@
       </v-toolbar>
     </template>
     <template v-slot:[`item.actions`]="{ item }">
-      <v-icon small class="mr-2">
+      <v-icon small class="mr-2" @click="redirectAudios(item)">
         mdi-information
       </v-icon>
       <v-icon small @click="deleteItem(item)">
@@ -32,7 +32,7 @@
       </v-icon>
     </template>
   </v-data-table>
-  </div>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -58,7 +58,7 @@ export default {
   }),
   created() {
     this.getSpeakers();
-    this.getAudio();
+    // this.getAudio();
   },
 
   methods: {
@@ -67,16 +67,16 @@ export default {
         this.speakers = res.data;
       });
     },
-    getAudio() {
-      this.$store.dispatch("speaker/getAudio").then(res => {
-        console.log(res);
-        var binaryData = [];
-        binaryData.push(res.data);
-        this.audio = window.URL.createObjectURL(new Blob(binaryData, { 'type': 'audio/wav' }))
-        // const blob = res.blob();
-        //   = window.URL.createObjectURL(res.data);
-      });
-    },
+    // getAudio() {
+    //   this.$store.dispatch("speaker/getAudio").then(res => {
+    //     console.log(res);
+    //     var binaryData = [];
+    //     binaryData.push(res.data);
+    //     this.audio = window.URL.createObjectURL(new Blob(binaryData, { 'type': 'audio/wav' }))
+    //     // const blob = res.blob();
+    //     //   = window.URL.createObjectURL(res.data);
+    //   });
+    // },
     deleteItem(item) {
       this.speaker = item;
       this.openDeleteDialog = true;
@@ -91,6 +91,10 @@ export default {
         this.openDeleteDialog = false
       }
     },
+    redirectAudios(item) {
+      console.log('speakers/' + item.id + '/audios');
+      this.$router.push('speakers/' + item.id + '/audios')
+    }
   }
 };
 </script>

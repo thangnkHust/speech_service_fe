@@ -22,15 +22,6 @@
             <v-list-item-title v-text="item.title" />
           </v-list-item-content>
         </v-list-item>
-        <!-- <v-list-item @click="logout" color="primary">
-          <v-list-item-icon>
-            <v-icon>mdi-logout</v-icon>
-          </v-list-item-icon>
-
-          <v-list-item-content>
-            <v-list-item-title>Đăng xuất</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item> -->
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
@@ -71,7 +62,6 @@
 <script>
 import '~/assets/table.scss'
 import Cookies from 'js-cookie'
-import APIs from '~/assets/configurations/API_Config'
 export default {
   middleware: 'auth',
   data () {
@@ -80,11 +70,6 @@ export default {
       drawer: true,
       fixed: false,
       items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
-        },
         {
           icon: 'mdi-account',
           title: 'Users',

@@ -260,9 +260,13 @@ const APIs = {
     url: '/admin/speakers/',
     method: 'DELETE'
   },
-  getAudio: {
-    url: '/admin/speakers/1/audios/1',
+  getAudiosBySpeaker: {
+    url: '/admin/speakers/',
     method: 'GET'
+  },
+  addAudio: {
+    url: '/admin/speakers/',
+    method: 'POST'
   }
 }
 
