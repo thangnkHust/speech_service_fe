@@ -209,7 +209,7 @@ export default (context, inject) => {
       Cookies.remove(cookieName, neededAttributes)
     })
 
-    router.push('/login')
+    router.push('/login/')
   })
 
   // Token invalid

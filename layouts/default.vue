@@ -29,7 +29,7 @@
       fixed
       app
     >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer" /> -->
       <v-btn
         icon
         @click.stop="miniVariant = !miniVariant"
@@ -79,12 +79,17 @@ export default {
           icon: 'mdi-speaker',
           title: 'Speakers',
           to: '/speakers'
+        },
+        {
+          icon: 'mdi-speaker',
+          title: 'Records',
+          to: '/records'
         }
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'User management',
+      // title: 'User management',
       email: null
     }
   },
@@ -99,7 +104,7 @@ export default {
         Cookies.remove(cookieName, neededAttributes)
       })
       this.$router.push('/login')
-    },    
+    },
   }
 }
 </script>

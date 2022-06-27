@@ -67,8 +67,8 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    // baseURL: 'https://api.gamehit.vn/api/cms/'
-    baseURL: 'https://2a23-123-24-142-202.ap.ngrok.io/api'
+    baseURL: 'http://localhost/api'
+    // baseURL: 'https://dc0f-14-248-90-99.ap.ngrok.io/api/'
   },
   wait: { useVuex: true },
   /*
