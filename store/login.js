@@ -134,9 +134,14 @@ export const actions = {
         let data = response.data
         if (errorCode === APIs.responses.OK.code && data.admin) {
           // Succeed
+          
           Cookies.set('token', data.token)
           Cookies.set('email', email)
-          this.$router.push('/')
+          // this.$showSuccess({
+          //   text: 'login success'
+          // })
+          this.$router.push('/users')
+
         } else if (
           errorCode === APIs.login.responses.CREDENTIALS_INVALID.code
         ) {

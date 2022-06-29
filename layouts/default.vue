@@ -79,6 +79,11 @@ export default {
           icon: 'mdi-speaker',
           title: 'Speakers',
           to: '/speakers'
+        },
+        {
+          icon: 'mdi-album',
+          title: 'Records',
+          to: '/records'
         }
       ],
       miniVariant: false,

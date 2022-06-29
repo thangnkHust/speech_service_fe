@@ -39,6 +39,7 @@ export default {
   plugins: [
     '~/plugins/APIs.js',
     '~/plugins/axios.js',
+    { src: '~/plugins/common.js', ssr: false },
     '~/plugins/util.js'
   ],
   /*
@@ -68,7 +69,7 @@ export default {
    */
   axios: {
     // baseURL: 'https://api.gamehit.vn/api/cms/'
-    baseURL: 'https://2a23-123-24-142-202.ap.ngrok.io/api'
+    baseURL: 'https://7d28-58-186-168-173.ap.ngrok.io/api'
   },
   wait: { useVuex: true },
   /*
