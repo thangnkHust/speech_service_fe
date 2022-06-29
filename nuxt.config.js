@@ -39,6 +39,7 @@ export default {
   plugins: [
     '~/plugins/APIs.js',
     '~/plugins/axios.js',
+    { src: '~/plugins/common.js', ssr: false },
     '~/plugins/util.js'
   ],
   /*

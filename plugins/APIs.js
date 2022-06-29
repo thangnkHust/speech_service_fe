@@ -152,4 +152,29 @@ export default (context, inject) => {
     return response
   })
 
+  inject('getAudioSource', async (speakerId, audioId)  => {
+    const response = await context.app.$axios({
+      url: APIs.getAudioSource.url + speakerId +'/audios/' + audioId,
+      method: APIs.getAudioSource.method,
+      headers: {
+        Authorization: 'Bearer ' + Cookies.get('token')
+      },
+      params: {}
+    })
+    return response
+  })
+
+  inject('getRecords', async ()  => {
+    const response = await context.app.$axios({
+      url: APIs.getRecords.url,
+      method: APIs.getRecords.method,
+      headers: {
+        Authorization: 'Bearer ' + Cookies.get('token')
+      },
+      params: {}
+    })
+    return response
+  })
+
+
 }

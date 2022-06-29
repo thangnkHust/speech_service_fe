@@ -267,6 +267,14 @@ const APIs = {
   addAudio: {
     url: '/admin/speakers/',
     method: 'POST'
+  },
+  getAudioSource: {
+    url: '/admin/speakers/',
+    method: 'GET'
+  },
+  getRecords: {
+    url: '/admin/records',
+    method: 'GET'
   }
 }
 

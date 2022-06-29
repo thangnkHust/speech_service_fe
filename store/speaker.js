@@ -50,6 +50,20 @@ export const actions = {
 
       return 1
     }
+  },
+
+  getAudioSource(vueContext, payload) {
+    try {
+      const speakerId = payload.speakerId
+      const audioId = payload.audioId
+      const response = this.$getAudioSource(speakerId, audioId)
+      return response
+    } catch (error) {
+       // Exceptions
+       this.app.wait.end('loadingUser')
+
+       return 1
+    }
   }
 
 }

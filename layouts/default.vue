@@ -81,7 +81,7 @@ export default {
           to: '/speakers'
         },
         {
-          icon: 'mdi-speaker',
+          icon: 'mdi-album',
           title: 'Records',
           to: '/records'
         }
