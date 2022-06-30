@@ -1,5 +1,5 @@
 <template>
-  <v-dialog :value="value" max-width="500px" @input="$emit('input', $event)">
+  <v-dialog :value="value" max-width="520px" @input="$emit('input', $event)">
     <v-card>
       <v-card-title class="text-h5"
         >Are you sure you want to delete this account?</v-card-title

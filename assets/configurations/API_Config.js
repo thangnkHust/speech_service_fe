@@ -275,6 +275,14 @@ const APIs = {
   getRecords: {
     url: '/admin/records',
     method: 'GET'
+  },
+  deleteRecord: {
+    url: '/admin/records/',
+    method: 'DELETE'
+  },
+  addRecord: {
+    url: '/admin/records',
+    method: 'POST'
   }
 }
 

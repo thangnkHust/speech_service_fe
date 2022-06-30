@@ -1,13 +1,8 @@
 <template>
-<!-- <div> -->
-    <!-- <audio controls preload="metadata">
-    <source id="my-audio" :src="audio" type="audio/wav"> Your browser does not support the audio element.
-  </audio> -->
-
-  <v-data-table :headers="headers" :items="speakers" class="elevation-1">
+  <v-data-table :headers="headers" :items="speakers" class="elevation-1" disable-sort>
     <template v-slot:top>
       <v-toolbar flat>
-        <v-toolbar-title>List users</v-toolbar-title>
+        <v-toolbar-title>List speakers</v-toolbar-title>
         <v-divider class="mx-4" inset vertical></v-divider>
         <v-spacer></v-spacer>
         <v-btn
@@ -32,7 +27,6 @@
       </v-icon>
     </template>
   </v-data-table>
-  <!-- </div> -->
 </template>
 
 <script>
