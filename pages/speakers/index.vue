@@ -61,16 +61,6 @@ export default {
         this.speakers = res.data;
       });
     },
-    // getAudio() {
-    //   this.$store.dispatch("speaker/getAudio").then(res => {
-    //     console.log(res);
-    //     var binaryData = [];
-    //     binaryData.push(res.data);
-    //     this.audio = window.URL.createObjectURL(new Blob(binaryData, { 'type': 'audio/wav' }))
-    //     // const blob = res.blob();
-    //     //   = window.URL.createObjectURL(res.data);
-    //   });
-    // },
     deleteItem(item) {
       this.speaker = item;
       this.openDeleteDialog = true;

@@ -151,6 +151,18 @@ export default (context, inject) => {
     return response
   })
 
+  inject('deleteAudio', async (speakerId, audioId)  => {
+    const response = await context.app.$axios({
+      url: APIs.deleteAudio.url + speakerId +'/audios/' + audioId,
+      method: APIs.deleteAudio.method,
+      headers: {
+        Authorization: 'Bearer ' + Cookies.get('token')
+      }
+    })
+    return response
+  })
+
+
   inject('getAudioSource', async (speakerId, audioId)  => {
     const response = await context.app.$axios({
       url: APIs.getAudioSource.url + speakerId +'/audios/' + audioId,

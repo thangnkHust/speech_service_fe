@@ -29,6 +29,9 @@
         </div>
       </v-toolbar>
     </template>
+    <template v-slot:[`item.email`]="{ item }">
+      <span>{{ item.user.email }}</span>
+    </template>
     <template v-slot:[`item.record_path`]="{ item }">
       <audio controls>
         <source :src="item.record_path" type="audio/ogg" />
@@ -45,13 +48,13 @@
     <template v-slot:[`item.actions`]="{ item }">
       <v-tooltip top>
         <template v-slot:activator="{ on, attrs }">
-          <v-icon class="mr-2" small v-bind="attrs" v-on="on">
+          <v-icon v-if="item.status === 1" class="mr-2" small v-bind="attrs" v-on="on">
             mdi-restart
           </v-icon>
         </template>
         <span>process record</span>
       </v-tooltip>
-      <v-icon small @click="deleteItem(item)">
+      <v-icon class="ml-2" small @click="deleteItem(item)">
         mdi-delete
       </v-icon>
     </template>
@@ -69,6 +72,7 @@ export default {
     recordInfo: {},
     headers: [
       { text: "Id", value: "id" },
+      { text: "Email", value: "email" },
       {
         text: "Record",
         value: "record_path"

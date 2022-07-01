@@ -283,6 +283,10 @@ const APIs = {
   addRecord: {
     url: '/admin/records',
     method: 'POST'
+  },
+  deleteAudio: {
+    url: '/admin/speakers/',
+    method: 'DELETE'
   }
 }
 
