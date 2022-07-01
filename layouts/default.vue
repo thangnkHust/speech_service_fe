@@ -87,6 +87,11 @@ export default {
           icon: 'mdi-album',
           title: 'Records',
           to: '/records'
+        },
+        {
+          icon: 'mdi-bar-chart',
+          title: 'Charts',
+          to: '/charts'
         }
       ],
       miniVariant: false,
