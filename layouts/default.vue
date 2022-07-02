@@ -47,6 +47,9 @@
     </v-app-bar>
     <v-main>
       <v-container>
+        <!-- <client-only>
+          <notifications group="login" :duration="10000" position="top right" :max="5"/>
+        </client-only> -->
         <nuxt />
       </v-container>
     </v-main>
@@ -84,6 +87,11 @@ export default {
           icon: 'mdi-album',
           title: 'Records',
           to: '/records'
+        },
+        {
+          icon: 'mdi-bar-chart',
+          title: 'Charts',
+          to: '/charts'
         }
       ],
       miniVariant: false,

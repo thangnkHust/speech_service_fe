@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Notifications from 'vue-notification'
+import VueApexCharts from 'vue-apexcharts'
 
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -14,3 +15,4 @@ const options = {
 }
 
 Vue.use(Notifications)
+Vue.component('apexchart', VueApexCharts)

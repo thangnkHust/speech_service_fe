@@ -64,7 +64,18 @@ export const actions = {
 
        return 1
     }
-  }
+  },
+
+  deleteAudio(vueContext, payload) {
+    try {
+      const speakerId = payload.speakerId
+      const audioId = payload.audioId
+      const response = this.$deleteAudio(speakerId, audioId) 
+      return response
+    } catch (errors) {
+
+    }
+  },
 
 }
 

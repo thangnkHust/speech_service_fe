@@ -137,7 +137,6 @@ export default (context, inject) => {
   })
 
   inject('addAudio', async (id, file)  => {
-    console.log(file, 'file');
     const formData = new FormData()
     formData.append('audio_file', file)
     const response = await context.app.$axios({
@@ -151,6 +150,18 @@ export default (context, inject) => {
     })
     return response
   })
+
+  inject('deleteAudio', async (speakerId, audioId)  => {
+    const response = await context.app.$axios({
+      url: APIs.deleteAudio.url + speakerId +'/audios/' + audioId,
+      method: APIs.deleteAudio.method,
+      headers: {
+        Authorization: 'Bearer ' + Cookies.get('token')
+      }
+    })
+    return response
+  })
+
 
   inject('getAudioSource', async (speakerId, audioId)  => {
     const response = await context.app.$axios({
@@ -171,6 +182,32 @@ export default (context, inject) => {
       headers: {
         Authorization: 'Bearer ' + Cookies.get('token')
       },
+      params: {}
+    })
+    return response
+  })
+
+  inject('deleteRecord', async (id) => {
+    const response = await context.app.$axios({
+      url: APIs.deleteRecord.url + id,
+      method: APIs.deleteRecord.method,
+      headers: {
+        Authorization: 'Bearer ' + Cookies.get('token')
+      }
+    })
+    return response
+  })
+
+  inject('addRecord', async (file)  => {
+    const formData = new FormData()
+    formData.append('record_file', file)
+    const response = await context.app.$axios({
+      url: APIs.addRecord.url,
+      method: APIs.addAudio.method,
+      headers: {
+        Authorization: 'Bearer ' + Cookies.get('token')
+      },
+      data: formData,
       params: {}
     })
     return response

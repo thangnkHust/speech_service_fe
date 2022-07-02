@@ -1,10 +1,5 @@
 <template>
-<!-- <div> -->
-    <!-- <audio controls preload="metadata">
-    <source id="my-audio" :src="audio" type="audio/wav"> Your browser does not support the audio element.
-  </audio> -->
-
-  <v-data-table :headers="headers" :items="speakers" class="elevation-1">
+  <v-data-table :headers="headers" :items="speakers" class="elevation-1" disable-sort>
     <template v-slot:top>
       <v-toolbar flat>
         <v-toolbar-title>List speakers</v-toolbar-title>
@@ -32,7 +27,6 @@
       </v-icon>
     </template>
   </v-data-table>
-  <!-- </div> -->
 </template>
 
 <script>
@@ -67,16 +61,6 @@ export default {
         this.speakers = res.data;
       });
     },
-    // getAudio() {
-    //   this.$store.dispatch("speaker/getAudio").then(res => {
-    //     console.log(res);
-    //     var binaryData = [];
-    //     binaryData.push(res.data);
-    //     this.audio = window.URL.createObjectURL(new Blob(binaryData, { 'type': 'audio/wav' }))
-    //     // const blob = res.blob();
-    //     //   = window.URL.createObjectURL(res.data);
-    //   });
-    // },
     deleteItem(item) {
       this.speaker = item;
       this.openDeleteDialog = true;

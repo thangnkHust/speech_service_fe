@@ -1,8 +1,8 @@
 <template>
-    <v-dialog :value="value" max-width="520px" @input="$emit('input', $event)">
+  <v-dialog :value="value" max-width="520px" @input="$emit('input', $event)">
     <v-card>
       <v-card-title class="text-h5"
-        >Are you sure you want to delete this speaker?</v-card-title
+        >Are you sure you want to delete this record?</v-card-title
       >
       <v-card-actions>
         <v-spacer></v-spacer>
@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     deleteItemConfirm() {
-      this.$emit("deleteSpeaker");
+      this.$emit("deleteRecord");
     }
   }
 };
