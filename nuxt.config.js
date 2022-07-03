@@ -68,8 +68,8 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: 'http://localhost/api'
-    // baseURL: 'https://dc0f-14-248-90-99.ap.ngrok.io/api/'
+    // baseURL: 'http://localhost/api'
+    baseURL: 'https://43a6-222-252-16-236.ap.ngrok.io/api/'
   },
   wait: { useVuex: true },
   /*

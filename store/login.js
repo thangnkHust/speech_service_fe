@@ -138,11 +138,11 @@ export const actions = {
           Cookies.set('token', data.token)
           Cookies.set('email', email)
           this.$router.push('/users')
-          // this.$router.app.$notify({
-          //   group: 'login',
-          //   type: 'error',
-          //   text : 'success'
-          // })
+          this.$router.app.$notify({
+            group: 'login',
+            type: 'success',
+            text : 'success'
+          })
 
         } else if (
           errorCode === APIs.login.responses.CREDENTIALS_INVALID.code
